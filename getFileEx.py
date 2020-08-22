@@ -23,11 +23,9 @@ from modules.get_file_info import get_size
 
 def get_params():
     # Функция возвращает полученные параметры из командной строки.
-    # Позже можно переписать с использованием библиотеки argparse.
     arg_count = len(sys.argv)
     if arg_count < 2 or arg_count > 3:
         # Ожидается один или два параметра.
-        # Позже переписать с использованием исключений!
         print("Неверное количество аргументов!")
         exit(1)
     ex = sys.argv[1]
@@ -35,7 +33,6 @@ def get_params():
         path = sys.argv[2]
     else:
         path = None
-    # Параметры возвращаются в виде словаря.
     return {
         "extension": ex,
         "path": path
