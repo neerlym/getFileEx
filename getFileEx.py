@@ -15,6 +15,7 @@
 # -----------------------------------------------------------------------------
 
 import sys
+import os
 
 
 def get_params():
@@ -38,7 +39,26 @@ def get_params():
     }
 
 
+def ex_value(params):
+    # Возвращает значение extension, извлечённое из параметров.
+    ex = params.get("extension")
+    if ex != "" and ex[0] == '.':
+        ex = ex[1:]
+    return ex
+
+
+def path_value(params):
+    # Возвращает значение path, извлечённое из параметров.
+    path = params.get("path")
+    if path == None:
+        path = os.getcwd()
+    return path
+
+
 if __name__ == "__main__":
     params = get_params()
-    print("path = " + str(params.get("path")))
-    print("extension = " + str(params.get("extension")))
+    ex = ex_value(params)
+    path = path_value(params)
+
+    print("path = " + path)
+    print("extension = " + ex)
