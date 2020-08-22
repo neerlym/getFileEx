@@ -5,9 +5,14 @@
 # Функция get_size(file_path) возвращает размер файла.
 # -----------------------------------------------------------------------------
 
+import os
+import datetime
+
 
 def get_mdate(file_path):
-    pass
+    mtime = os.path.getmtime(file_path)
+    mdate = datetime.datetime.fromtimestamp(mtime)
+    return mdate.strftime("%Y-%m-%d %H:%M:%S")
 
 
 def get_size(file_path):
@@ -16,3 +21,4 @@ def get_size(file_path):
 
 if __name__ == "__main__":
     print("*** module get_file_info.py ***")
+    print(get_mdate("./get_file_info.py"))
