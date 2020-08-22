@@ -16,6 +16,7 @@
 
 import sys
 import os
+from modules.get_file_ex import get_file_ex
 
 
 def get_params():
@@ -62,3 +63,6 @@ if __name__ == "__main__":
 
     print("path = " + path)
     print("extension = " + ex)
+
+    ex_list = get_file_ex(path, ex)
+    print(ex_list)

@@ -7,8 +7,8 @@
 # Сигнатура : get_file_ex(path, extension) -> [ ... ]
 # -----------------------------------------------------------------------------
 
-from get_extension import get_ex
-from get_file_list import get_file_list
+from modules.get_extension import get_ex
+from modules.get_file_list import get_file_list
 
 
 def get_file_ex(path, ex):
