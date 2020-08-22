@@ -16,9 +16,17 @@ def get_mdate(file_path):
 
 
 def get_size(file_path):
-    pass
+    size = os.path.getsize(file_path)
+    postfix = ["B", "KB", "MB", "GB"]
+    j = 0
+    while size > 1024 and j <= len(postfix):
+        size = size / 1024
+        size = round(size, 2)
+        j += 1
+    return str(size) + postfix[j]
 
 
 if __name__ == "__main__":
     print("*** module get_file_info.py ***")
     print(get_mdate("./get_file_info.py"))
+    print(get_size("./get_file_info.py"))
