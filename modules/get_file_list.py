@@ -11,6 +11,14 @@ import os
 import datetime
 
 
+def get_mdate(file_path):
+    pass
+
+
+def get_size(file_path):
+    pass
+
+
 def get_file_list(path):
     if path[-1] != '/':
         # Модифицируем путь так, чтобы в конце он содержал косую черту.
