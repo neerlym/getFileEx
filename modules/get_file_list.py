@@ -1,26 +1,11 @@
 # -----------------------------------------------------------------------------
 # Этот модуль содержит функцию get_file_list(), которая принимает путь до
 # каталога, а возвращает список файлов в данном каталоге.
-# Каждый элемент списка представляет собой список из 3-х элементов: имени
-# файла, даты и времени модификации, и размера.
 # Если файлов в данном каталоге нет, возвращается пустой список.
 # Сигнатура : get_file_list(path) -> []
 # -----------------------------------------------------------------------------
 
 import os
-import datetime
-
-
-def get_mdate(file_path):
-    pass
-
-
-def get_size(file_path):
-    pass
-
-
-def get_file_elem(path, item):
-    pass
 
 
 def get_file_list(path):
@@ -34,13 +19,8 @@ def get_file_list(path):
     # (каталоги не включаем)
     file_list = []
     for item in all_list:
-        file_path = path + item
         if not os.path.isdir(path + item):
-            modified_date = datetime.datetime.fromtimestamp(
-                os.path.getmtime(file_path)
-            ).strftime("%Y-%m-%d %H:%M:%S")
-            size = str(os.path.getsize(file_path))
-            file_list.append([item, modified_date, size])
+            file_list.append(item)
     return file_list
 
 
