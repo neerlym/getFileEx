@@ -13,6 +13,8 @@ from modules.get_file_list import get_file_list
 
 def get_file_ex(path, ex):
     file_list = get_file_list(path)
+    if ex == "*":
+        return file_list
     ex_list = list(filter(lambda item: get_ex(item) == ex, file_list))
     return ex_list
 
