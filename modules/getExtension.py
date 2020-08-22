@@ -1,13 +1,23 @@
+# -----------------------------------------------------------------------------
 #
 # Функция get_ex() принимает имя файла и возвращает его расширение.
+# Расширением считается подстрока после самого правого символа точки '.'.
+# Если расширение отсутствует, возвращает пустую строку.
 # Сигнатура : get_ex(file_name) -> extension
 #
+# -----------------------------------------------------------------------------
 
-def get_ex():
-    pass
+def get_ex(file_name):
+    p_index = file_name.rfind(".")
+    if p_index == -1:
+        return ""
+    extension = file_name[p_index+1:]
+    return extension
 
 
 if __name__ == "__main__":
-    fileName = input("file = ")
-    ex = get_ex()
-    print("extension = " + "." + ex)
+    f_name = input("file = ")
+    ex = get_ex(f_name)
+    if ex != "":
+        ex = "." + ex
+    print("extension = " + ex)
