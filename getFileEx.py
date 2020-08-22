@@ -14,9 +14,11 @@
 # можно не указывать (тогда программа будет работать в текущем каталоге).
 # -----------------------------------------------------------------------------
 
-import sys
 import os
+import sys
 from modules.get_file_ex import get_file_ex
+from modules.get_file_info import get_mdate
+from modules.get_file_info import get_size
 
 
 def get_params():
@@ -68,4 +70,5 @@ if __name__ == "__main__":
     print(f"count of elements: {len(ex_list)}\n")
 
     for i in ex_list:
-        print(i)
+        file_path = f"{path}\\{i}"
+        print(i, get_mdate(file_path), get_size(file_path))
