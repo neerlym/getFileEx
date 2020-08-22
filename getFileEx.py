@@ -65,7 +65,7 @@ if __name__ == "__main__":
 
     ex_list = get_file_ex(path, ex)
 
-    print(f"всего элементов: {len(ex_list)}\n")
+    print(f"count of elements: {len(ex_list)}\n")
 
     for i in ex_list:
         print(i)
