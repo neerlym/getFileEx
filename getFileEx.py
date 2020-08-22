@@ -61,8 +61,11 @@ if __name__ == "__main__":
     ex = ex_value(params)
     path = path_value(params)
 
-    print("path = " + path)
-    print("extension = " + ex)
+    print(f"path = {path}\nextension = .{ex}\n")
 
     ex_list = get_file_ex(path, ex)
-    print(ex_list)
+
+    print(f"всего элементов: {len(ex_list)}\n")
+
+    for i in ex_list:
+        print(i)
