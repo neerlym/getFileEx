@@ -11,11 +11,11 @@ from get_extension import get_ex
 from get_file_list import get_file_list
 
 
-def get_file_ex():
-    pass
+def get_file_ex(file_list, ex):
+    ex_list = list(filter(lambda item: get_ex(item) == ex, file_list))
+    return ex_list
 
 
 if __name__ == "__main__":
     print("*** module get_file_ex.py ***")
-    print(get_ex("myimage.jpg"))
-    print(get_file_list("./"))
+    print(get_file_ex(get_file_list("./"), "py"))
