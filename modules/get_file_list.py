@@ -19,6 +19,10 @@ def get_size(file_path):
     pass
 
 
+def get_file_elem(path, item):
+    pass
+
+
 def get_file_list(path):
     if path[-1] != '/':
         # Модифицируем путь так, чтобы в конце он содержал косую черту.
@@ -31,7 +35,7 @@ def get_file_list(path):
     file_list = []
     for item in all_list:
         file_path = path + item
-        if not os.path.isdir(file_path):
+        if not os.path.isdir(path + item):
             modified_date = datetime.datetime.fromtimestamp(
                 os.path.getmtime(file_path)
             ).strftime("%Y-%m-%d %H:%M:%S")
