@@ -55,6 +55,13 @@ def path_value(params):
     return path
 
 
+def to_fixlen(str, max_len = 40):
+    i_len = len(str)
+    if i_len < max_len:
+        str = str + ' ' * (max_len - i_len)
+    return str
+
+
 if __name__ == "__main__":
     params = get_params()
     ex = ex_value(params)
@@ -68,4 +75,4 @@ if __name__ == "__main__":
 
     for i in ex_list:
         file_path = f"{path}\\{i}"
-        print(i, get_mdate(file_path), get_size(file_path))
+        print(to_fixlen(i), get_mdate(file_path), get_size(file_path))
