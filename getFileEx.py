@@ -75,4 +75,6 @@ if __name__ == "__main__":
 
     for i in ex_list:
         file_path = f"{path}\\{i}"
-        print(to_fixlen(i), get_mdate(file_path), get_size(file_path))
+        print(to_fixlen(i, max_len=max(map(len, ex_list))+1), end=' ')
+        print(get_mdate(file_path), end=' ')
+        print(get_size(file_path))
