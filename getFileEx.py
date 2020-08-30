@@ -52,8 +52,9 @@ if __name__ == "__main__":
 
     print(f"count of elements: {len(ex_list)}\n")
 
-    for i in ex_list:
-        file_path = f"{path}\\{i}"
-        print(to_fixlen(i, max_len=max(map(len, ex_list))+1), end=' ')
+    max_len = max(map(len, ex_list)) + 1
+    for filename in ex_list:
+        file_path = f"{path}\\{filename}"
+        print(to_fixlen(filename, max_len=max_len), end=' ')
         print(get_mdate(file_path), end=' ')
         print(get_size(file_path))
