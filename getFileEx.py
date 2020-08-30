@@ -16,9 +16,18 @@
 
 import os
 import sys
+import argparse
+
 from modules.get_file_ex import get_file_ex
 from modules.get_file_info import get_mdate
 from modules.get_file_info import get_size
+
+
+def create_parser():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('extension', nargs='?', default="*")
+    parser.add_argument('path', nargs='?', default=os.getcwd())
+    return parser
 
 
 def get_params():
@@ -63,13 +72,18 @@ def to_fixlen(str, max_len = 40):
 
 
 if __name__ == "__main__":
-    params = get_params()
-    ex = ex_value(params)
-    path = path_value(params)
+    parser = create_parser()
+    params = parser.parse_args(sys.argv[1:])
 
-    print(f"path = {path}\nextension = .{ex}\n")
+    # params = get_params()
+    ext = params.extension
+    if ext != "" and ext[0] == '.':
+        ext = ext[1:]
+    path = params.path
 
-    ex_list = get_file_ex(path, ex)
+    print(f"path = {path}\nextension = .{ext}\n")
+
+    ex_list = get_file_ex(path, ext)
 
     print(f"count of elements: {len(ex_list)}\n")
 
