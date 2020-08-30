@@ -30,40 +30,6 @@ def create_parser():
     return parser
 
 
-def get_params():
-    # Функция возвращает полученные параметры из командной строки.
-    arg_count = len(sys.argv)
-    if arg_count < 2 or arg_count > 3:
-        # Ожидается один или два параметра.
-        print("Неверное количество аргументов!")
-        exit(1)
-    ex = sys.argv[1]
-    if arg_count == 3:
-        path = sys.argv[2]
-    else:
-        path = None
-    return {
-        "extension": ex,
-        "path": path
-    }
-
-
-def ex_value(params):
-    # Возвращает значение extension, извлечённое из параметров.
-    ex = params.get("extension")
-    if ex != "" and ex[0] == '.':
-        ex = ex[1:]
-    return ex
-
-
-def path_value(params):
-    # Возвращает значение path, извлечённое из параметров.
-    path = params.get("path")
-    if path == None:
-        path = os.getcwd()
-    return path
-
-
 def to_fixlen(str, max_len = 40):
     i_len = len(str)
     if i_len < max_len:
@@ -75,7 +41,6 @@ if __name__ == "__main__":
     parser = create_parser()
     params = parser.parse_args(sys.argv[1:])
 
-    # params = get_params()
     ext = params.extension
     if ext != "" and ext[0] == '.':
         ext = ext[1:]
